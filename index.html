@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reci-Life | Reciclar para Vivir Mejor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --green: #2e7d32;
+      --light-green: #81c784;
+      --bg: #f8fff9;
+    }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #333; }
+    .navbar { background: var(--green); }
+    .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1590419690008-97851633b4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size: cover; color: white; padding: 100px 0; }
+    .btn-primary { background: var(--light-green); border: none; color: #000; font-weight: bold; }
+    .btn-primary:hover { background: #66bb6a; }
+    .card { transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .ranking-table th { background: var(--green); color: white; }
+    .qr-code { max-width: 150px; margin: 20px auto; }
+    footer { background: #222; color: #aaa; padding: 40px 0; }
+    .chart-container { max-width: 600px; margin: 30px auto; }
+    .upload-preview img { max-width: 100%; border-radius: 10px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="fas fa-recycle"></i> Reci-Life
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#info">Información</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ranking">Ranking</a></li>
+        <li class="nav-item"><a class="nav-link" href="#upload">Subir Trabajo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#talleres">Talleres</a></li>
+        <li class="nav-item"><a class="nav-link" href="#recursos">Recursos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Reci-Life</h1>
+    <p class="lead mb-4">"Reciclar para vivir mejor"</p>
+    <p class="mb-4">Un proyecto educativo que convierte el reciclaje en un juego motivador con puntos, ranking y premios.</p>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <iframe width="100%" height="215" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-4">
+        <iframe width="100%" height="215" src="https://www.youtube.com/embed/3zM1YLOoO4k" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <a href="#ranking" class="btn btn-primary btn-lg mt-4">Ver Ranking</a>
+    <a href="#upload" class="btn btn-outline-light btn-lg mt-4 ms-2">Subir mi Reciclaje</a>
+  </div>
+</section>
+
+<!-- INFORMACIÓN DEL PROYECTO -->
+<section id="info" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Información del Proyecto</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Objetivo General</h4>
+        <p>Implementar un sistema de reciclaje tecnológico y gamificado que motive a los estudiantes de 5to de secundaria a adoptar prácticas sostenibles, transformando el reciclaje en una experiencia educativa, divertida y con impacto ambiental comprobable.</p>
+        <h4>Objetivos Específicos</h4>
+        <ul>
+          <li>Lograr que al menos 80% de los estudiantes utilicen el sistema QR y apliquen correctamente las técnicas de separación de residuos.</li>
+          <li>Implementar tres ecoestaciones inteligentes con registro QR.</li>
+          <li>Alcanzar la participación activa del 70% en talleres de eco-creatividad.</li>
+          <li>Evaluar el progreso mediante el ranking verde, buscando un incremento del 50% en puntos.</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>Metodología</h4>
+        <ul>
+          <li>Charlas motivacionales</li>
+          <li>Talleres de reutilización creativa</li>
+          <li>Ecoestaciones con códigos QR</li>
+          <li>Exposición final de productos reciclados</li>
+        </ul>
+        <h4>Beneficios del Reciclaje</h4>
+        <p>Reduce la contaminación, conserva recursos naturales, mitiga el cambio climático y fomenta la creatividad y responsabilidad ciudadana.</p>
+        <a href="Grupo-05.docx (2).pdf" class="btn btn-success mt-3" download>Descargar PDF Completo</a>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <h4>Galería del Proyecto</h4>
+      <div class="row mt-3">
+        <div class="col-6 col-md-3"><img src="https://via.placeholder.com/300x200?text=Taller+1" class="img-fluid rounded" alt="Taller"></div>
+        <div class="col-6 col-md-3"><img src="https://via.placeholder.com/300x200?text=Ecoestación" class="img-fluid rounded" alt="Ecoestación"></div>
+        <div class="col-6 col-md-3"><img src="https://via.placeholder.com/300x200?text=Exposición" class="img-fluid rounded" alt="Exposición"></div>
+        <div class="col-6 col-md-3"><img src="https://via.placeholder.com/300x200?text=Equipo" class="img-fluid rounded" alt="Equipo"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RANKING -->
+<section id="ranking" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Ranking de Puntos</h2>
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <input type="text" id="filterName" class="form-control" placeholder="Filtrar por nombre">
+      </div>
+      <div class="col-md-4">
+        <select id="filterSection" class="form-control">
+          <option value="">Todas las secciones</option>
+          <option>5to A</option>
+          <option>5to B</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <input type="date" id="filterDate" class="form-control">
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped ranking-table" id="rankingTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Estudiante</th>
+            <th>Sección</th>
+            <th>Puntos</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Datos simulados -->
+          <tr><td>1</td><td>Jhair Álvarez</td><td>5to A</td><td>850</td><td>2025-10-30</td></tr>
+          <tr><td>2</td><td>Yesly Durán</td><td>5to B</td><td>720</td><td>2025-10-29</td></tr>
+          <tr><td>3</td><td>Piero Díaz</td><td>5to A</td><td>680</td><td>2025-10-28</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="chart-container">
+      <canvas id="progressChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- SUBIR TRABAJOS -->
+<section id="upload" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Subir tu Reciclaje</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form id="uploadForm">
+          <div class="mb-3">
+            <label>Nombre y Apellidos</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Grado y Sección</label>
+            <select class="form-control" required>
+              <option>5to A</option>
+              <option>5to B</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Foto del Material Reciclado</label>
+            <input type="file" accept="image/*" class="form-control" id="photoInput" required>
+            <div class="upload-preview"></div>
+          </div>
+          <div class="mb-3">
+            <label>Descripción del Proceso</label>
+            <textarea class="form-control" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label>Tipo de Material</label>
+            <select class="form-control" required>
+              <option>Plástico</option>
+              <option>Papel/Cartón</option>
+              <option>Vidrio</option>
+              <option>Metal</option>
+              <option>Orgánico</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Enviar para Aprobación</button>
+        </form>
+        <div class="alert alert-success mt-3 d-none" id="successMsg">
+          ¡Trabajo enviado! Será revisado por los administradores. Recibirás puntos al ser aprobado.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TALLERES -->
+<section id="talleres" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Talleres y Actividades</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Calendario de Sesiones</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>29/10/2025</strong> - Sensibilización Inicial</li>
+          <li class="list-group-item"><strong>05/11 y 12/11</strong> - Charlas: ¿Por qué reciclar?</li>
+          <li class="list-group-item"><strong>19/11 y 26/11</strong> - Talleres de Eco-Creatividad</li>
+          <li class="list-group-item"><strong>03/12/2025</strong> - Exposición Final</li>
+        </ul>
+        <a href="#" class="btn btn-primary mt-3">Inscribirme al Taller</a>
+      </div>
+      <div class="col-md-6">
+        <h4>Materiales Descargables</h4>
+        <ul>
+          <li><a href="#">Guía de Separación de Residuos (PDF)</a></li>
+          <li><a href="#">Plantilla para Objetos Reciclados</a></li>
+        </ul>
+        <h4 class="mt-4">Trabajos Destacados</h4>
+        <img src="https://via.placeholder.com/400x300?text=Lámpara+de+Botellas" class="img-fluid rounded" alt="Trabajo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS EDUCATIVOS -->
+<section id="recursos" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Recursos Educativos</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <div class="card-body">
+            <i class="fas fa-video fa-3x text-success mb-3"></i>
+            <h5>Videos Tutoriales</h5>
+            <p>Cómo separar residuos, hacer compost, etc.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <div class="card-body">
+            <i class="fas fa-file-pdf fa-3x text-success mb-3"></i>
+            <h5>Infografías</h5>
+            <p>Descarga guías visuales sobre reciclaje.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <div class="card-body">
+            <i class="fas fa-link fa-3x text-success mb-3"></i>
+            <h5>Enlaces Externos</h5>
+            <p>Sitios sobre ODS 11 y 12, normativas locales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO Y ANEXOS -->
+<section id="contacto" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Contacto y Anexos</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Formulario de Contacto</h4>
+        <form>
+          <div class="mb-3"><input type="text" class="form-control" placeholder="Nombre"></div>
+          <div class="mb-3"><input type="email" class="form-control" placeholder="Correo"></div>
+          <div class="mb-3"><textarea class="form-control" rows="3" placeholder="Mensaje"></textarea></div>
+          <button class="btn btn-success">Enviar</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h4>Equipo del Proyecto</h4>
+        <ul class="list-unstyled">
+          <li><strong>Álvarez Muñico, Jhair Jhesser</strong> - Líder</li>
+          <li><strong>Durán Bernaola, Yesly Edith</strong> - Diseño</li>
+          <li><strong>Díaz Porras, Piero David</strong> - Tecnología</li>
+          <li><strong>Camac Gonzales, Leandro Luis</strong> - Logística</li>
+          <li><strong>JumPA Fierro, Jhovani Salvador</strong> - Comunicación</li>
+        </ul>
+        <h4>Aliados</h4>
+        <p><strong>IE Ramiro Villaverde Lazo</strong> - Huancayo</p>
+        <h4>Grupo de WhatsApp</h4>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://chat.whatsapp.com/tugrupo" class="qr-code" alt="QR WhatsApp">
+        <h4>Ubicación</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.123456789!2d-75.220123!3d-12.068456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA0JzQyLjQiUyA3NcKwMTMnMTIuNCJX!5e0!3m2!1ses!2spe!4v123456789!5m2!1ses!2spe" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center py-4">
+  <p>&copy; 2025 Reci-Life | Laboratorio de Liderazgo e Innovación Avanzado | Universidad Continental</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Simular datos de ranking
+  const rankings = [
+    { name: "Jhair Álvarez", section: "5to A", points: 850, date: "2025-10-30" },
+    { name: "Yesly Durán", section: "5to B", points: 720, date: "2025-10-29" },
+    { name: "Piero Díaz", section: "5to A", points: 680, date: "2025-10-28" },
+    { name: "Leandro Camac", section: "5to B", points: 590, date: "2025-10-27" },
+  ];
+
+  // Cargar ranking
+  function loadRanking(data) {
+    const tbody = document.querySelector("#rankingTable tbody");
+    tbody.innerHTML = "";
+    data.forEach((r, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${i+1}</td><td>${r.name}</td><td>${r.section}</td><td>${r.points}</td><td>${r.date}</td>`;
+      tbody.appendChild(tr);
+    });
+  }
+  loadRanking(rankings);
+
+  // Filtros
+  document.getElementById("filterName").addEventListener("input", filter);
+  document.getElementById("filterSection").addEventListener("change", filter);
+  document.getElementById("filterDate").addEventListener("change", filter);
+
+  function filter() {
+    const name = document.getElementById("filterName").value.toLowerCase();
+    const section = document.getElementById("filterSection").value;
+    const date = document.getElementById("filterDate").value;
+
+    const filtered = rankings.filter(r => {
+      return (!name || r.name.toLowerCase().includes(name)) &&
+             (!section || r.section === section) &&
+             (!date || r.date === date);
+    });
+    loadRanking(filtered);
+  }
+
+  // Gráfico
+  new Chart(document.getElementById("progressChart"), {
+    type: 'line',
+    data: {
+      labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+      datasets: [{
+        label: 'Puntos Totales',
+        data: [1200, 1900, 2800, 4200],
+        borderColor: '#2e7d32',
+        backgroundColor: 'rgba(46, 125, 50, 0.2)',
+        fill: true
+      }]
+    },
+    options: { responsive: true }
+  });
+
+  // Vista previa de imagen
+  document.getElementById("photoInput").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.querySelector(".upload-preview").innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Enviar formulario
+  document.getElementById("uploadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    document.getElementById("successMsg").classList.remove("d-none");
+    setTimeout(() => this.reset(), 2000);
+  });
+</script>
+
+</body>
+</html>
