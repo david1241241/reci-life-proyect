@@ -8,19 +8,41 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    :root { --green: #2e7d32; --light-green: #81c784; --bg: #f8fff9; }
-    body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #333; }
+    :root { --green: #2e7d32; --light-green: #81c784; --bg: #f8fff9; --dark-green: #1b5e20; --warning: #ff9800; --danger: #f44336; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #333; line-height: 1.7; }
     .navbar { background: var(--green); }
-    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1590419690008-97851633b4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size: cover; color: white; padding: 120px 0; }
-    .btn-primary { background: var(--light-green); border: none; color: #000; font-weight: bold; }
-    .btn-primary:hover { background: #66bb6a; }
-    .card { transition: 0.3s; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-    .ranking-table th { background: var(--green); color: white; }
-    .qr-code { max-width: 180px; margin: 20px auto; }
-    footer { background: #222; color: #aaa; padding: 40px 0; }
-    .chart-container { max-width: 600px; margin: 30px auto; }
-    .upload-preview img { max-width: 100%; border-radius: 10px; margin-top: 10px; }
+    .hero { background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1590419690008-97851633b4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; color: white; padding: 140px 0; }
+    .btn-primary { background: var(--light-green); border: none; color: #000; font-weight: bold; border-radius: 30px; padding: 14px 35px; font-size: 1.1rem; }
+    .btn-primary:hover { background: #66bb6a; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .card { border: none; border-radius: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); transition: 0.4s; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.18); }
+    .ranking-table th { background: var(--dark-green); color: white; }
+    .qr-code { max-width: 200px; margin: 25px auto; border: 6px solid white; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
+    footer { background: #111; color: #ccc; padding: 60px 0; font-size: 0.95rem; }
+    .chart-container { max-width: 750px; margin: 45px auto; }
+    .upload-preview img { max-width: 100%; border-radius: 18px; margin-top: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+    .section-title { color: var(--green); font-weight: 800; border-bottom: 4px solid var(--light-green); padding-bottom: 12px; font-size: 1.8rem; }
+    .info-card { background: white; border-radius: 18px; padding: 35px; box-shadow: 0 6px 22px rgba(0,0,0,0.1); }
+    .recycle-icon { font-size: 3.5rem; color: var(--green); margin-bottom: 18px; }
+    .step-number { background: var(--green); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-right: 18px; }
+    .material-card { background: #e8f5e9; border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 5px solid var(--green); }
+    .material-icon { font-size: 3rem; color: var(--green); margin-bottom: 12px; }
+    .uc-logo { width: 90px; margin-bottom: 25px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2)); }
+    .cover-page { text-align: center; padding: 70px 25px; background: white; margin-bottom: 50px; border-radius: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+    .cover-page h1 { font-size: 3.2rem; color: var(--dark-green); margin-bottom: 35px; font-weight: 900; }
+    .cover-page .subtitle { font-style: italic; color: #555; font-size: 1.4rem; margin-bottom: 45px; }
+    .team-list { list-style: none; padding: 0; }
+    .team-list li { margin-bottom: 10px; font-size: 1.15rem; }
+    .team-list li strong { color: var(--green); }
+    .pollution-fact { background: #fff8e1; border-left: 6px solid var(--warning); padding: 18px; margin: 18px 0; border-radius: 10px; font-weight: 600; }
+    .impact-card { background: #e3f2fd; border-radius: 15px; padding: 25px; margin-bottom: 25px; border: 1px dashed #2196f3; }
+    .stat-number { font-size: 2.8rem; font-weight: 900; color: var(--danger); }
+    .stat-label { font-size: 1.1rem; color: #555; }
+    .crisis-banner { background: linear-gradient(135deg, #b71c1c, #d32f2f); color: white; padding: 30px; border-radius: 15px; text-align: center; margin: 30px 0; }
+    .crisis-banner h3 { font-weight: 800; }
+    .solution-card { background: #e8f5e9; border-radius: 15px; padding: 25px; margin: 20px 0; }
+    .solution-icon { font-size: 2.5rem; color: var(--green); }
+    .eco-tip { background: #f1f8e9; border-left: 5px solid #8bc34a; padding: 15px; margin: 15px 0; border-radius: 8px; }
   </style>
 </head>
 <body>
@@ -28,7 +50,9 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#"><i class="fas fa-recycle"></i> Reci-Life</a>
+    <a class="navbar-brand fw-bold fs-3" href="#">
+      <i class="fas fa-recycle"></i> Reci-Life
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,44 +73,75 @@
 <!-- HERO -->
 <section id="home" class="hero text-center">
   <div class="container">
-    <h1 class="display-2 fw-bold">Reci-Life</h1>
-    <p class="lead mb-4">"Reciclar para vivir mejor"</p>
-    <p class="mb-4">Un proyecto educativo que convierte el reciclaje en un juego motivador con puntos, ranking y premios.</p>
-    <div class="row justify-content-center mb-4">
+    <h1 class="display-2 fw-bold mb-4">Reci-Life</h1>
+    <p class="lead mb-4 fs-3">"Reciclar para vivir mejor"</p>
+    <p class="mb-5 fs-4">Un sistema gamificado que convierte el reciclaje en una revolución educativa. Puntos, ranking, premios y un planeta más limpio.</p>
+    <div class="row justify-content-center mb-5">
       <div class="col-md-5">
-        <iframe width="100%" height="250" src="https://www.youtube.com/embed/d84Sbs5IVzc" title="Reducir, Reutilizar y Reciclar" frameborder="0" allowfullscreen></iframe>
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/d84Sbs5IVzc" title="Reducir, Reutilizar y Reciclar" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
       <div class="col-md-5">
-        <iframe width="100%" height="250" src="https://www.youtube.com/embed/cvakvfXj0KE" title="Importancia del Reciclaje" frameborder="0" allowfullscreen></iframe>
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/cvakvfXj0KE" title="Importancia del Reciclaje" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
-    <a href="#ranking" class="btn btn-primary btn-lg mt-4">Ver Ranking</a>
-    <a href="#upload" class="btn btn-outline-light btn-lg mt-4 ms-2">Subir mi Reciclaje</a>
+    <a href="#ranking" class="btn btn-primary btn-lg me-3">Ver Ranking</a>
+    <a href="#upload" class="btn btn-outline-light btn-lg">Subir mi Reciclaje</a>
   </div>
 </section>
 
-<!-- INFORMACIÓN -->
+<!-- PORTADA OFICIAL (SIN NOMBRES) -->
 <section id="info" class="py-5">
   <div class="container">
-    <h2 class="text-center mb-5">Información del Proyecto</h2>
-    <div class="row">
+    <div class="cover-page">
+      <p class="mb-4 fst-italic text-muted">"Año de la recuperación y consolidación de la economía peruana"</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Universidad_Continental_logo.png/800px-Universidad_Continental_logo.png" alt="Universidad Continental" class="uc-logo">
+      <h4 class="mb-3 text-uppercase">Laboratorio de Liderazgo e Innovación Avanzado</h4>
+      <h1 class="mb-5">"Reci-Life (reciclar para vivir mejor)"</h1>
+      <p class="mb-2"><strong>DOCENTE:</strong> ROSALES PECHO, Meliton Julio</p>
+      <p class="mb-2"><strong>GRADO DE INSTRUCCIÓN:</strong> 5to ciclo</p>
+      <p class="mb-2"><strong>SECCIÓN:</strong> 75624</p>
+      <p class="mt-5 mb-2"><strong>HUANCAYO - PERÚ</strong></p>
+      <p class="fs-3 fw-bold">2025</p>
+    </div>
+
+    <div class="row mt-5">
       <div class="col-md-6">
-        <h4>Objetivos</h4>
-        <h5>General:</h5>
-        <p>Implementar un sistema de reciclaje tecnológico y gamificado que motive a los estudiantes de 5to de secundaria a adoptar prácticas sostenibles.</p>
-        <h5>Específicos:</h5>
-        <ul>
-          <li>80% de estudiantes usen el sistema QR.</li>
-          <li>Implementar 3 ecoestaciones.</li>
-          <li>70% participación en talleres.</li>
-          <li>50% incremento en puntos.</li>
-        </ul>
+        <div class="info-card">
+          <h3 class="section-title mb-4">Objetivo General</h3>
+          <p>Implementar un sistema de reciclaje tecnológico y gamificado que motive a los estudiantes de 5to de secundaria a adoptar prácticas sostenibles, transformando el reciclaje en una experiencia educativa, divertida y con impacto ambiental comprobable.</p>
+          
+          <h4 class="mt-4 text-success">Objetivos Específicos</h4>
+          <ol class="fs-5">
+            <li>Lograr que al menos el 80% de los estudiantes utilicen el sistema QR y apliquen correctamente las técnicas de separación de residuos.</li>
+            <li>Implementar tres ecoestaciones inteligentes con registro QR en la institución educativa.</li>
+            <li>Alcanzar la participación activa del 70% de los estudiantes en talleres de eco-creatividad.</li>
+            <li>Evaluar el progreso mediante el ranking verde, buscando un incremento del 50% en puntos acumulados.</li>
+          </ol>
+        </div>
       </div>
       <div class="col-md-6">
-        <h4>Descargar Proyecto</h4>
-        <a href="proyecto.pdf" class="btn btn-success btn-lg mt-3" download>
-          <i class="fas fa-file-pdf"></i> Descargar Proyecto Completo (PDF)
-        </a>
+        <div class="info-card">
+          <h3 class="section-title mb-4">Beneficios del Reciclaje</h3>
+          <p class="lead">El reciclaje no solo reduce la contaminación, sino que conserva recursos naturales, mitiga el cambio climático y fomenta la creatividad y responsabilidad ciudadana en las nuevas generaciones.</p>
+          
+          <h4 class="mt-4 text-success">Metodología</h4>
+          <ul class="list-unstyled fs-5">
+            <li><i class="fas fa-check text-success me-2"></i> Charlas motivacionales sobre conciencia ambiental</li>
+            <li><i class="fas fa-check text-success me-2"></i> Talleres prácticos de reutilización creativa</li>
+            <li><i class="fas fa-check text-success me-2"></i> Implementación de ecoestaciones con códigos QR</li>
+            <li><i class="fas fa-check text-success me-2"></i> Exposición final de productos reciclados</li>
+          </ul>
+          
+          <div class="text-center mt-4">
+            <a href="Grupo-05 .docx (2).pdf" class="btn btn-success btn-lg" download>
+              <i class="fas fa-file-pdf"></i> Descargar Proyecto Completo (PDF)
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -95,12 +150,12 @@
 <!-- RANKING -->
 <section id="ranking" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-5">Ranking de Puntos</h2>
+    <h2 class="text-center mb-5 section-title">Ranking de Puntos</h2>
     <div class="row mb-4">
-      <div class="col-md-4"><input type="text" id="filterName" class="form-control" placeholder="Filtrar por nombre"></div>
+      <div class="col-md-4"><input type="text" id="filterName" class="form-control" placeholder="Buscar por nombre"></div>
       <div class="col-md-4">
         <select id="filterSection" class="form-control">
-          <option value="">Todas secciones</option>
+          <option value="">Todas las secciones</option>
           <option>5to A</option>
           <option>5to B</option>
         </select>
@@ -120,18 +175,244 @@
 <!-- SUBIR TRABAJOS -->
 <section id="upload" class="py-5">
   <div class="container">
-    <h2 class="text-center mb-5">Subir tu Reciclaje</h2>
+    <h2 class="text-center mb-5 section-title">Subir tu Reciclaje</h2>
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <form id="uploadForm">
-          <div class="mb-3"><label>Nombre y Apellidos</label><input type="text" class="form-control" required></div>
-          <div class="mb-3"><label>Grado y Sección</label><select class="form-control" required><option>5to A</option><option>5to B</option></select></div>
-          <div class="mb-3"><label>Foto</label><input type="file" accept="image/*" class="form-control" id="photoInput" required><div class="upload-preview"></div></div>
-          <div class="mb-3"><label>Descripción</label><textarea class="form-control" rows="3" required></textarea></div>
-          <div class="mb-3"><label>Tipo de Material</label><select class="form-control" required><option>Plástico</option><option>Papel</option><option>Vidrio</option></select></div>
-          <button type="submit" class="btn btn-success w-100">Enviar para Aprobación</button>
-        </form>
-        <div class="alert alert-success mt-3 d-none" id="successMsg">¡Trabajo enviado! Recibirás puntos al aprobarse.</div>
+        <div class="card">
+          <div class="card-body">
+            <form id="uploadForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Nombre y Apellidos</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Grado y Sección</label>
+                  <select class="form-control" required>
+                    <option>5to A</option>
+                    <option>5to B</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Foto del material reciclado</label>
+                <input type="file" accept="image/*" class="form-control" id="photoInput" required>
+                <div class="upload-preview"></div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Descripción del proceso</label>
+                <textarea class="form-control" rows="3" placeholder="Explica cómo reciclaste el material..." required></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Tipo de material</label>
+                <select class="form-control" required>
+                  <option>Plástico</option>
+                  <option>Papel/Cartón</option>
+                  <option>Vidrio</option>
+                  <option>Metal</option>
+                  <option>Orgánico</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-success w-100 btn-lg">Enviar para Aprobación</button>
+            </form>
+            <div class="alert alert-success mt-3 d-none" id="successMsg">
+              <i class="fas fa-check-circle"></i> ¡Trabajo enviado exitosamente! Recibirás puntos al ser aprobado.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TALLERES -->
+<section id="talleres" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">Talleres y Actividades</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title text-success">Calendario de Sesiones</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div><strong>29/10/2025</strong></div>
+                <div>Sensibilización Inicial</div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div><strong>05/11 y 12/11</strong></div>
+                <div>Charlas: ¿Por qué reciclar?</div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div><strong>19/11 y 26/11</strong></div>
+                <div>Talleres de Eco-Creatividad</div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div><strong>03/12/2025</strong></div>
+                <div>Exposición Final</div>
+              </li>
+            </ul>
+            <a href="#" class="btn btn-primary mt-3 w-100">Inscribirme al Taller</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title text-success">Materiales y Trabajos Destacados</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#" class="text-decoration-none"><i class="fas fa-file-pdf text-danger"></i> Guía de Separación de Residuos</a></li>
+              <li class="mb-2"><a href="#" class="text-decoration-none"><i class="fas fa-file-alt text-primary"></i> Plantilla para Objetos Reciclados</a></li>
+            </ul>
+            <div class="mt-4">
+              <img src="https://via.placeholder.com/500x300?text=Lámpara+de+Botellas+Recicladas" class="img-fluid rounded" alt="Trabajo destacado">
+              <p class="mt-2 text-center"><em>Lámpara hecha con botellas PET - 1er lugar</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS EDUCATIVOS - CRISIS AMBIENTAL + RECICLAJE -->
+<section id="recursos" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">La Crisis Ambiental y el Poder del Reciclaje</h2>
+
+    <!-- BANNER DE CRISIS -->
+    <div class="crisis-banner">
+      <h3>¡EL PLANETA ESTÁ EN PELIGRO!</h3>
+      <p class="lead">Cada minuto, un camión de basura de plástico entra al océano. En Perú, solo reciclamos el 4.5% de nuestros residuos. ¡Es hora de actuar!</p>
+    </div>
+
+    <!-- ESTADÍSTICAS IMPACTANTES -->
+    <div class="row text-center mb-5">
+      <div class="col-md-3">
+        <div class="impact-card">
+          <div class="stat-number">8M</div>
+          <div class="stat-label">Toneladas de plástico al océano/año</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="impact-card">
+          <div class="stat-number">7M</div>
+          <div class="stat-label">Muertes por contaminación del aire/año</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="impact-card">
+          <div class="stat-number">150K</div>
+          <div class="stat-label">Hectáreas deforestadas en Perú/año</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="impact-card">
+          <div class="stat-number">60%</div>
+          <div class="stat-label">Residuos orgánicos en vertederos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTAMINACIÓN EN PERÚ -->
+    <div class="pollution-fact">
+      <h5><i class="fas fa-exclamation-triangle text-warning"></i> Perú genera 23,000 toneladas de residuos diarios</h5>
+      <p>Solo el 4.5% se recicla. El 70% termina en vertederos informales o ríos como el Rímac, que lleva 1,200 toneladas de plástico al año al mar.</p>
+    </div>
+
+    <div class="pollution-fact">
+      <h5><i class="fas fa-lungs text-danger"></i> Lima: 5 veces más contaminación que el límite OMS</h5>
+      <p>Los niveles de PM2.5 superan 25 µg/m³. La quema de basura y el tráfico generan 3,000 toneladas de CO2 diarias en la capital.</p>
+    </div>
+
+    <div class="pollution-fact">
+      <h5><i class="fas fa-tree text-danger"></i> Amazonía peruana: 12,000 hectáreas perdidas al mes</h5>
+      <p>La tala ilegal y la minería contaminan ríos con mercurio. Cada árbol talado libera 50 kg de CO2.</p>
+    </div>
+
+    <!-- GUÍA DE RECICLAJE DETALLADA -->
+    <h3 class="text-center mt-5 mb-5 text-success">Guía Completa: Cómo Reciclar y Salvar el Planeta</h3>
+
+    <div class="material-card">
+      <div class="d-flex align-items-center mb-3">
+        <div class="step-number">1</div>
+        <h4 class="mb-0"><i class="fas fa-bottle-water material-icon"></i> Plástico</h4>
+      </div>
+      <p><strong>Pasos:</strong> Lava, aplasta, separa PET/HDPE. Usa contenedor azul.</p>
+      <p><strong>Crisis:</strong> 1 millón de botellas se venden por minuto. En Perú, 8 de cada 10 terminan en ríos.</p>
+      <p><strong>Solución:</strong> Reciclar 1 botella ahorra energía para 6 horas de luz LED. Perú podría ahorrar 1.2 millones de kWh al año.</p>
+      <div class="eco-tip"><strong>Tip:</strong> Con 25 botellas PET haces una camiseta. ¡Reutiliza antes de reciclar!</div>
+    </div>
+
+    <div class="material-card">
+      <div class="d-flex align-items-center mb-3">
+        <div class="step-number">2</div>
+        <h4 class="mb-0"><i class="fas fa-newspaper material-icon"></i> Papel y Cartón</h4>
+      </div>
+      <p><strong>Pasos:</strong> Quita grapas, dobla cartón. Contenedor azul.</p>
+      <p><strong>Crisis:</strong> Perú pierde 150,000 hectáreas de bosque al año. El papel es el 40% de residuos en Huancayo.</p>
+      <p><strong>Solución:</strong> 1 tonelada reciclada salva 17 árboles, 26,000 litros de agua y 4,000 kWh de energía.</p>
+      <div class="eco-tip"><strong>Tip:</strong> Usa ambas caras del papel. Una hoja ahorrada = 1 litro de agua.</div>
+    </div>
+
+    <div class="material-card">
+      <div class="d-flex align-items-center mb-3">
+        <div class="step-number">3</div>
+        <h4 class="mb-0"><i class="fas fa-wine-bottle material-icon"></i> Vidrio</h4>
+      </div>
+      <p><strong>Pasos:</strong> Lava, quita tapas. Contenedor verde.</p>
+      <p><strong>Crisis:</strong> Tarda 4,000 años en degradarse. Solo 8% se recicla en Perú.</p>
+      <p><strong>Solución:</strong> 100% reciclable infinitas veces. 1 botella reciclada = 30 min de TV.</p>
+      <div class="eco-tip"><strong>Tip:</strong> Devuelve botellas de gaseosa. ¡Ganas dinero y salvas el planeta!</div>
+    </div>
+
+    <div class="material-card">
+      <div class="d-flex align-items-center mb-3">
+        <div class="step-number">4</div>
+        <h4 class="mb-0"><i class="fas fa-can material-icon"></i> Metal</h4>
+      </div>
+      <p><strong>Pasos:</strong> Lava, aplasta. Contenedor amarillo.</p>
+      <p><strong>Crisis:</strong> Minería contamina ríos con mercurio. 1 lata en el mar mata 10 peces.</p>
+      <p><strong>Solución:</strong> Reciclar aluminio ahorra 95% de energía. 1 lata = 3 horas de TV.</p>
+      <div class="eco-tip"><strong>Tip:</strong> Aplasta latas. Ahorras espacio y ganas más puntos en Reci-Life.</div>
+    </div>
+
+    <div class="material-card">
+      <div class="d-flex align-items-center mb-3">
+        <div class="step-number">5</div>
+        <h4 class="mb-0"><i class="fas fa-leaf material-icon"></i> Orgánico</h4>
+      </div>
+      <p><strong>Pasos:</strong> Compostera con cáscaras. Remueve cada 3 días.</p>
+      <p><strong>Crisis:</strong> 60% de residuos peruanos son orgánicos. Generan metano (25x más potente que CO2).</p>
+      <p><strong>Solución:</strong> Compostaje reduce 50% de residuos. 1 kg de abono = 10 plantas nuevas.</p>
+      <div class="eco-tip"><strong>Tip:</strong> Haz compost en casa. ¡Tu jardín te lo agradecerá!</div>
+    </div>
+
+    <!-- SOLUCIONES -->
+    <div class="text-center mt-5">
+      <h4 class="text-success">¿Qué Puedes Hacer TÚ?</h4>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="solution-card text-center">
+            <i class="fas fa-hand-holding-heart solution-icon"></i>
+            <h5>Separa en casa</h5>
+            <p>3 contenedores: orgánico, reciclable, no reciclable.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="solution-card text-center">
+            <i class="fas fa-lightbulb solution-icon"></i>
+            <h5>Reutiliza</h5>
+            <p>Botellas → macetas. Cartón → organizadores.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="solution-card text-center">
+            <i class="fas fa-qrcode solution-icon"></i>
+            <h5>Usa Reci-Life</h5>
+            <p>Sube tu reciclaje, gana puntos, salva el planeta.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -140,34 +421,50 @@
 <!-- CONTACTO -->
 <section id="contacto" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-5">Contacto y Anexos</h2>
+    <h2 class="text-center mb-5 section-title">Contacto y Anexos</h2>
     <div class="row">
       <div class="col-md-6">
-        <h4>Grupo WhatsApp</h4>
-        <img src="frame.png" class="qr-code" alt="QR Grupo Reci-Life">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title text-success">Formulario de Contacto</h4>
+            <form>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Nombre completo">
+              </div>
+              <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Correo electrónico">
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" rows="4" placeholder="Tu mensaje o consulta..."></textarea>
+              </div>
+              <button class="btn btn-success w-100">Enviar Mensaje</button>
+            </form>
+          </div>
+        </div>
       </div>
       <div class="col-md-6">
-        <h4>Ubicación - IE Ramiro Villaverde Lazo</h4>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5034.7379619703615!2d-75.19493412388397!3d-12.057627642105182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910e97c84ceca2e3%3A0x9358dae6dd427209!2sInstituci%C3%B3n%20Educativa%20Ramiro%20Villaverde%20Lazo!5e1!3m2!1ses!2spe!4v1761936501161!5m2!1ses!2spe" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-12">
-        <h4>Equipo</h4>
-        <ul class="list-unstyled">
-          <li><strong>Jhair Jhesser Álvarez Muñico</strong> - Líder (100%)</li>
-          <li><strong>Yesly Edith Durán Bernaola</strong> - Diseño (100%)</li>
-          <li><strong>Piero David Díaz Porras</strong> - Tecnología (100%)</li>
-          <li><strong>Leandro Luis Camac Gonzales</strong> - Logística (100%)</li>
-          <li><strong>Jhovani Salvador JumPA Fierro</strong> - Comunicación (100%)</li>
-        </ul>
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title text-success">Aliados Estratégicos</h4>
+            <p>IE Ramiro Villaverde Lazo - Huancayo</p>
+            
+            <h5 class="mt-4 text-success">Grupo de WhatsApp</h5>
+            <img src="frame.png" class="qr-code" alt="QR Grupo WhatsApp">
+            
+            <h5 class="mt-4 text-success">Ubicación</h5>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5034.7379619703615!2d-75.19493412388397!3d-12.057627642105182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910e97c84ceca2e3%3A0x9358dae6dd427209!2sInstituci%C3%B3n%20Educativa%20Ramiro%20Villaverde%20Lazo!5e1!3m2!1ses!2spe!4v1761936501161!5m2!1ses!2spe" width="100%" height="200" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="text-center py-4">
-  <p>&copy; 2025 Reci-Life | Laboratorio de Liderazgo e Innovación Avanzado | Universidad Continental | Huancayo - Perú</p>
+<footer class="text-center">
+  <div class="container">
+    <p class="mb-0">&copy; 2025 Reci-Life | Laboratorio de Liderazgo e Innovación Avanzado | Universidad Continental</p>
+    <p class="small text-muted mt-2">Juntos por un Perú más limpio, verde y sostenible</p>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -179,14 +476,16 @@
     { name: "Leandro Camac", section: "5to B", points: 590, date: "2025-10-27" },
     { name: "Jhovani JumPA", section: "5to A", points: 510, date: "2025-10-26" }
   ];
+
   function loadRanking(data) {
     const tbody = document.querySelector("#rankingTable tbody");
     tbody.innerHTML = "";
     data.forEach((r, i) => {
-      tbody.innerHTML += `<tr><td>${i+1}</td><td>${r.name}</td><td>${r.section}</td><td>${r.points}</td><td>${r.date}</td></tr>`;
+      tbody.innerHTML += `<tr><td>${i+1}</td><td>${r.name}</td><td>${r.section}</td><td><strong>${r.points}</strong></td><td>${r.date}</td></tr>`;
     });
   }
   loadRanking(rankings);
+
   ["filterName", "filterSection", "filterDate"].forEach(id => {
     document.getElementById(id).addEventListener("input", () => {
       const name = document.getElementById("filterName").value.toLowerCase();
@@ -200,22 +499,43 @@
       loadRanking(filtered);
     });
   });
+
   new Chart(document.getElementById("progressChart"), {
     type: 'line',
-    data: { labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'], datasets: [{ label: 'Puntos Totales', data: [1200, 1900, 2800, 4200], borderColor: '#2e7d32', fill: true }] },
-    options: { responsive: true }
+    data: {
+      labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+      datasets: [{
+        label: 'Puntos Totales Acumulados',
+        data: [1200, 1900, 2800, 4200],
+        borderColor: '#2e7d32',
+        backgroundColor: 'rgba(46, 125, 50, 0.1)',
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
   });
-  document.getElementById("photoInput").addEventListener("change", e => {
-    if (e.target.files[0]) {
+
+  document.getElementById("photoInput").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (file) {
       const reader = new FileReader();
-      reader.onload = ev => document.querySelector(".upload-preview").innerHTML = `<img src="${ev.target.result}">`;
-      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = function(ev) {
+        document.querySelector(".upload-preview").innerHTML = `<img src="${ev.target.result}" alt="Vista previa">`;
+      };
+      reader.readAsDataURL(file);
     }
   });
-  document.getElementById("uploadForm").addEventListener("submit", e => {
+
+  document.getElementById("uploadForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    document.getElementById("successMsg").classList.remove("d-none");
-    setTimeout(() => e.target.reset(), 2000);
+    const successMsg = document.getElementById("successMsg");
+    successMsg.classList.remove("d-none");
+    setTimeout(() => {
+      successMsg.classList.add("d-none");
+      this.reset();
+      document.querySelector(".upload-preview").innerHTML = "";
+    }, 3000);
   });
 </script>
 </body>
