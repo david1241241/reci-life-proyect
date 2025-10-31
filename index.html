@@ -11,13 +11,13 @@
     :root { --green: #2e7d32; --light-green: #81c784; --bg: #f8fff9; }
     body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #333; }
     .navbar { background: var(--green); }
-    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1590419690008-97851633b4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size: cover; color: white; padding: 120px 0; }
+    .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1590419690008-97851633b4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size: cover; color: white; padding: 100px 0; }
     .btn-primary { background: var(--light-green); border: none; color: #000; font-weight: bold; }
     .btn-primary:hover { background: #66bb6a; }
     .card { transition: 0.3s; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
     .ranking-table th { background: var(--green); color: white; }
-    .qr-code { max-width: 180px; margin: 20px auto; }
+    .qr-code { max-width: 150px; margin: 20px auto; }
     footer { background: #222; color: #aaa; padding: 40px 0; }
     .chart-container { max-width: 600px; margin: 30px auto; }
     .upload-preview img { max-width: 100%; border-radius: 10px; margin-top: 10px; }
@@ -46,18 +46,18 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO / INICIO -->
 <section id="home" class="hero text-center">
   <div class="container">
-    <h1 class="display-2 fw-bold">Reci-Life</h1>
+    <h1 class="display-4 fw-bold">Reci-Life</h1>
     <p class="lead mb-4">"Reciclar para vivir mejor"</p>
     <p class="mb-4">Un proyecto educativo que convierte el reciclaje en un juego motivador con puntos, ranking y premios.</p>
     <div class="row justify-content-center mb-4">
-      <div class="col-md-5">
-        <iframe width="100%" height="250" src="https://www.youtube.com/embed/INSERTE_VIDEO_1" title="Video Motivacional" frameborder="0" allowfullscreen></iframe>
+      <div class="col-md-4">
+        <iframe width="100%" height="215" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1" frameborder="0" allowfullscreen></iframe>
       </div>
-      <div class="col-md-5">
-        <iframe width="100%" height="250" src="https://www.youtube.com/embed/INSERTE_VIDEO_2" title="Tutorial Reciclaje" frameborder="0" allowfullscreen></iframe>
+      <div class="col-md-4">
+        <iframe width="100%" height="215" src="https://www.youtube.com/embed/3zM1YLOoO4k" title="Video 2" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
     <a href="#ranking" class="btn btn-primary btn-lg mt-4">Ver Ranking</a>
@@ -65,49 +65,237 @@
   </div>
 </section>
 
-<!-- INFORMACIÓN -->
+<!-- INFORMACIÓN DEL PROYECTO -->
 <section id="info" class="py-5">
   <div class="container">
     <h2 class="text-center mb-5">Información del Proyecto</h2>
     <div class="row">
       <div class="col-md-6">
-        <h4>Objetivo General</h4>
-        <p>Implementar un sistema de reciclaje tecnológico y gamificado que motive a los estudiantes de 5to de secundaria a adoptar prácticas sostenibles, transformando el reciclaje en una experiencia educativa, divertida y con impacto ambiental comprobable.</p>
-        <h4>Metodología</h4>
+        <h4>Objetivos</h4>
+        <h5>General:</h5>
+        <p>Implementar un sistema de reciclaje tecnológico y gamificado que motive a los estudiantes de 5to de secundaria a adoptar prácticas sostenibles.</p>
+        <h5>Específicos:</h5>
         <ul>
-          <li>Charlas motivacionales</li>
-          <li>Talleres de reutilización creativa</li>
-          <li>Ecoestaciones con códigos QR</li>
-          <li>Exposición final de productos reciclados</li>
+          <li>80% de estudiantes usen el sistema QR.</li>
+          <li>Implementar 3 ecoestaciones.</li>
+          <li>70% participación en talleres.</li>
+          <li>50% incremento en puntos.</li>
         </ul>
+        <h4>Beneficios del Reciclaje</h4>
+        <p>Reduce contaminación, conserva recursos, mitiga cambio climático y fomenta responsabilidad.</p>
       </div>
       <div class="col-md-6">
-        <h4>Descargar Proyecto</h4>
-        <a href="proyecto-reci-life.pdf" class="btn btn-success btn-lg" download>
-          <i class="fas fa-file-pdf"></i> Descargar PDF Completo
-        </a>
+        <h4>Metodología</h4>
+        <ul>
+          <li>Charlas motivacionales.</li>
+          <li>Talleres de eco-creatividad.</li>
+          <li>Ecoestaciones con QR.</li>
+          <li>Exposición final de productos.</li>
+        </ul>
+        <h4>Galería</h4>
+        <div class="row">
+          <div class="col-6"><img src="https://via.placeholder.com/150?text=Taller" class="img-fluid rounded mb-2" alt="Taller"></div>
+          <div class="col-6"><img src="https://via.placeholder.com/150?text=Ecoestación" class="img-fluid rounded mb-2" alt="Ecoestación"></div>
+        </div>
+        <a href="#" class="btn btn-success mt-3" download>Descargar PDF Completo</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RANKING, SUBIR, TALLERES, RECURSOS... (mismo que antes) -->
+<!-- RANKING -->
+<section id="ranking" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Ranking de Puntos</h2>
+    <div class="row mb-4">
+      <div class="col-md-4"><input type="text" id="filterName" class="form-control" placeholder="Filtrar por nombre"></div>
+      <div class="col-md-4">
+        <select id="filterSection" class="form-control">
+          <option value="">Todas secciones</option>
+          <option>5to A</option>
+          <option>5to B</option>
+        </select>
+      </div>
+      <div class="col-md-4"><input type="date" id="filterDate" class="form-control"></div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped ranking-table" id="rankingTable">
+        <thead><tr><th>#</th><th>Estudiante</th><th>Sección</th><th>Puntos</th><th>Fecha</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="chart-container"><canvas id="progressChart"></canvas></div>
+  </div>
+</section>
+
+<!-- SUBIR TRABAJOS -->
+<section id="upload" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Subir tu Reciclaje</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form id="uploadForm">
+          <div class="mb-3"><label>Nombre y Apellidos</label><input type="text" class="form-control" required></div>
+          <div class="mb-3"><label>Grado y Sección</label><select class="form-control" required><option>5to A</option><option>5to B</option></select></div>
+          <div class="mb-3"><label>Foto</label><input type="file" accept="image/*" class="form-control" id="photoInput" required><div class="upload-preview"></div></div>
+          <div class="mb-3"><label>Descripción</label><textarea class="form-control" rows="3" required></textarea></div>
+          <div class="mb-3"><label>Tipo de Material</label><select class="form-control" required><option>Plástico</option><option>Papel</option><option>Vidrio</option></select></div>
+          <button type="submit" class="btn btn-success w-100">Enviar para Aprobación</button>
+        </form>
+        <div class="alert alert-success mt-3 d-none" id="successMsg">¡Trabajo enviado! Recibirás puntos al aprobarse.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TALLERES -->
+<section id="talleres" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Talleres y Actividades</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Calendario</h4>
+        <ul class="list-group">
+          <li class="list-group-item">29/10/2025 - Sensibilización</li>
+          <li class="list-group-item">05/11/2025 - Charlas</li>
+          <li class="list-group-item">19/11/2025 - Talleres</li>
+          <li class="list-group-item">03/12/2025 - Exposición</li>
+        </ul>
+        <button class="btn btn-primary mt-3">Inscribirme</button>
+      </div>
+      <div class="col-md-6">
+        <h4>Materiales</h4>
+        <ul><li><a href="#">Guía de Residuos (PDF)</a></li><li><a href="#">Instructivos</a></li></ul>
+        <h4>Trabajos Destacados</h4>
+        <img src="https://via.placeholder.com/400?text=Trabajo+Destacado" class="img-fluid rounded" alt="Destacado">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS -->
+<section id="recursos" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Recursos Educativos</h2>
+    <div class="row">
+      <div class="col-md-4"><div class="card text-center"><div class="card-body"><i class="fas fa-video fa-3x text-success mb-3"></i><h5>Videos</h5><p>Tutoriales de reciclaje.</p></div></div></div>
+      <div class="col-md-4"><div class="card text-center"><div class="card-body"><i class="fas fa-file-pdf fa-3x text-success mb-3"></i><h5>Infografías</h5><p>Guías descargables.</p></div></div></div>
+      <div class="col-md-4"><div class="card text-center"><div class="card-body"><i class="fas fa-link fa-3x text-success mb-3"></i><h5>Enlaces</h5><p>Sitios ambientales.</p></div></div></div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACTO -->
 <section id="contacto" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-5">Contacto</h2>
+    <h2 class="text-center mb-5">Contacto y Anexos</h2>
     <div class="row">
       <div class="col-md-6">
-        <h4>Grupo WhatsApp</h4>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://chat.whatsapp.com/TU_GRUPO_AQUI" class="qr-code" alt="QR Grupo">
+        <h4>Formulario</h4>
+        <form>
+          <div class="mb-3"><input type="text" class="form-control" placeholder="Nombre"></div>
+          <div class="mb-3"><input type="email" class="form-control" placeholder="Correo"></div>
+          <div class="mb-3"><textarea class="form-control" rows="3" placeholder="Mensaje"></textarea></div>
+          <button class="btn btn-success">Enviar</button>
+        </form>
       </div>
       <div class="col-md-6">
+        <h4>Equipo</h4>
+        <ul class="list-unstyled">
+          <li><strong>Jhair Jhesser Álvarez Muñico</strong> - Líder (100%)</li>
+          <li><strong>Yesly Edith Durán Bernaola</strong> - Diseño (100%)</li>
+          <li><strong>Piero David Díaz Porras</strong> - Tecnología (100%)</li>
+          <li><strong>Leandro Luis Camac Gonzales</strong> - Logística (100%)</li>
+          <li><strong>Jhovani Salvador JumPA Fierro</strong> - Comunicación (100%)</li>
+        </ul>
+        <h4>Aliados</h4>
+        <p>IE Ramiro Villaverde Lazo - Huancayo</p>
+        <h4>WhatsApp</h4>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://chat.whatsapp.com/example" class="qr-code" alt="QR WhatsApp">
         <h4>Ubicación</h4>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.123!2d-75.220123!3d-12.068456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910e44f6d8b3d4a5%3A0x7f8e8c8d8e8f8g8h!2sIE%20Ramiro%20Villaverde%20Lazo!5e0!3m2!1ses!2spe!4v123456789" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.123456789!2d-75.220123!3d-12.068456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMTLCsDA0JzQyLjQiUyA3NcKwMTMnMTIuNCJX!5e0!3m2!1ses!2spe!4v123456789!5m2!1ses!2spe" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ... resto del código (ranking, formulario, etc.) ... -->
+<footer class="text-center py-4">
+  <p>&copy; 2025 Reci-Life | Laboratorio de Liderazgo e Innovación Avanzado | Universidad Continental | Huancayo - Perú</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Datos simulados para ranking
+  const rankings = [
+    { name: "Jhair Álvarez", section: "5to A", points: 850, date: "2025-10-30" },
+    { name: "Yesly Durán", section: "5to B", points: 720, date: "2025-10-29" },
+    { name: "Piero Díaz", section: "5to A", points: 680, date: "2025-10-28" },
+    { name: "Leandro Camac", section: "5to B", points: 590, date: "2025-10-27" },
+    { name: "Jhovani JumPA", section: "5to A", points: 510, date: "2025-10-26" }
+  ];
+
+  // Cargar ranking
+  function loadRanking(data) {
+    const tbody = document.querySelector("#rankingTable tbody");
+    tbody.innerHTML = "";
+    data.forEach((r, i) => {
+      tbody.innerHTML += `<tr><td>${i+1}</td><td>${r.name}</td><td>${r.section}</td><td>${r.points}</td><td>${r.date}</td></tr>`;
+    });
+  }
+  loadRanking(rankings);
+
+  // Filtros
+  document.getElementById("filterName").addEventListener("input", filterRanking);
+  document.getElementById("filterSection").addEventListener("change", filterRanking);
+  document.getElementById("filterDate").addEventListener("change", filterRanking);
+
+  function filterRanking() {
+    const name = document.getElementById("filterName").value.toLowerCase();
+    const section = document.getElementById("filterSection").value;
+    const date = document.getElementById("filterDate").value;
+    const filtered = rankings.filter(r => 
+      (!name || r.name.toLowerCase().includes(name)) &&
+      (!section || r.section === section) &&
+      (!date || r.date === date)
+    );
+    loadRanking(filtered);
+  }
+
+  // Gráfico
+  new Chart(document.getElementById("progressChart"), {
+    type: 'line',
+    data: {
+      labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+      datasets: [{
+        label: 'Puntos Totales',
+        data: [1200, 1900, 2800, 4200],
+        borderColor: '#2e7d32',
+        backgroundColor: 'rgba(46, 125, 50, 0.2)',
+        fill: true
+      }]
+    },
+    options: { responsive: true }
+  });
+
+  // Vista previa de imagen
+  document.getElementById("photoInput").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        document.querySelector(".upload-preview").innerHTML = `<img src="${ev.target.result}" alt="Preview" class="img-fluid">`;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Formulario de subida
+  document.getElementById("uploadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    document.getElementById("successMsg").classList.remove("d-none");
+    setTimeout(() => this.reset(), 3000);
+    setTimeout(() => document.getElementById("successMsg").classList.add("d-none"), 5000);
+  });
+</script>
+</body>
+</html>
